@@ -1,0 +1,11 @@
+<idea-plugin>
+    <id>io.github.zizitop13.red-hot-code</id>
+    <name>Red Hot Code</name>
+    <vendor url="https://github.com/zizitop13">zizitop13</vendor>
+
+    <description><![CDATA[
+    Reveals defect hotspots by correlating Git history with Jira bug issues.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+</idea-plugin>
