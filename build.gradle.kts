@@ -12,6 +12,7 @@ kotlin {
 }
 
 repositories {
+    mavenCentral()
     intellijPlatform {
         defaultRepositories()
     }
