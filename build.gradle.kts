@@ -37,6 +37,11 @@ intellijPlatform {
             sinceBuild = "243"
         }
     }
+    pluginVerification {
+        ides {
+            recommended()
+        }
+    }
 }
 
 tasks {
