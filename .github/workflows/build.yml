@@ -20,3 +20,6 @@ jobs:
           cache: gradle
       - uses: gradle/actions/setup-gradle@v4
       - run: ./gradlew check verifyPlugin --info
+      - name: Print test reports on failure
+        if: failure()
+        run: find build/test-results -name '*.xml' -type f -print -exec sed -n '1,240p' {} \;
