@@ -12,6 +12,7 @@ kotlin {
 }
 
 repositories {
+    mavenCentral()
     intellijPlatform {
         defaultRepositories()
     }
@@ -25,7 +26,9 @@ dependencies {
         testFramework(org.jetbrains.intellij.platform.gradle.TestFrameworkType.Platform)
     }
 
-    testImplementation(kotlin("test"))
+    testImplementation(kotlin("test-junit5"))
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testRuntimeOnly("junit:junit:4.13.2")
 }
 
 intellijPlatform {
@@ -34,10 +37,19 @@ intellijPlatform {
             sinceBuild = "243"
         }
     }
+    pluginVerification {
+        ides {
+            recommended()
+        }
+    }
 }
 
 tasks {
     test {
         useJUnitPlatform()
+        testLogging {
+            events("failed", "skipped")
+            exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+        }
     }
 }
