@@ -19,4 +19,4 @@ jobs:
           java-version: "21"
           cache: gradle
       - uses: gradle/actions/setup-gradle@v4
-      - run: ./gradlew check verifyPlugin
+      - run: ./gradlew check verifyPlugin --info
